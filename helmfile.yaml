@@ -1,20 +1,19 @@
 repositories:
-  - name: ingress-nginx
-    url: https://kubernetes.github.io/ingress-nginx
   - name: jetstack
     url: https://charts.jetstack.io
   - name: metrics-server
     url: https://kubernetes-sigs.github.io/metrics-server/
+  - name: traefik
+    url: https://helm.traefik.io/traefik
 
 releases:
-  - name: ingress-nginx
-    namespace: ingress
-    chart: ingress-nginx/ingress-nginx
+  - name: traefik
+    namespace: traefik
+    chart: traefik/traefik
     createNamespace: true
     values:
-      - values/ingress.yaml
-      - values/pvc.yaml
-
+      - values/traefik.yaml
+      
   - name: cert-manager
     namespace: cert-manager
     chart: jetstack/cert-manager
