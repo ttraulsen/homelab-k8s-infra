@@ -1,0 +1,31 @@
+repositories:
+  - name: ingress-nginx
+    url: https://kubernetes.github.io/ingress-nginx
+  - name: jetstack
+    url: https://charts.jetstack.io
+  - name: metrics-server
+    url: https://kubernetes-sigs.github.io/metrics-server/
+
+releases:
+  - name: ingress-nginx
+    namespace: ingress
+    chart: ingress-nginx/ingress-nginx
+    createNamespace: true
+    values:
+      - values/ingress.yaml
+      - values/pvc.yaml
+
+  - name: cert-manager
+    namespace: cert-manager
+    chart: jetstack/cert-manager
+    version: v1.14.0
+    createNamespace: true
+    values:
+      - values/cert-manager.yaml
+      - values/pvc.yaml
+
+  - name: metrics-server
+    namespace: kube-system
+    chart: metrics-server/metrics-server
+    values:
+      - values/metrics.yaml
