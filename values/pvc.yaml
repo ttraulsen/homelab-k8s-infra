@@ -1,6 +1,0 @@
-infraStorage:
-  storageClass: local-nas
-  certManager:
-    size: 5Gi
-  ingress:
-    size: 2Gi

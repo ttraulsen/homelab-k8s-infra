@@ -1,9 +1,11 @@
 ports:
   web:
-    expose: true
+    expose:
+      default: true
     port: 80
   websecure:
-    expose: true
+    expose:
+      default: true
     port: 443
 
 ingressRoute:

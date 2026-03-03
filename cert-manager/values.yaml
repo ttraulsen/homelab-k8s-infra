@@ -2,7 +2,6 @@ installCRDs: true
 extraArgs:
   - --enable-certificate-owner-ref=true
 
-
 persistence:
   enabled: true
   storageClass: local-nas

@@ -1,30 +1,12 @@
-repositories:
-  - name: jetstack
-    url: https://charts.jetstack.io
-  - name: metrics-server
-    url: https://kubernetes-sigs.github.io/metrics-server/
-  - name: traefik
-    url: https://helm.traefik.io/traefik
+# Main helmfile - references all service helmfiles
+helmDefaults:
+  atomic: false
+  wait: true
+  timeout: 10m
 
-releases:
-  - name: traefik
-    namespace: traefik
-    chart: traefik/traefik
-    createNamespace: true
-    values:
-      - values/traefik.yaml
-      
-  - name: cert-manager
-    namespace: cert-manager
-    chart: jetstack/cert-manager
-    version: v1.14.0
-    createNamespace: true
-    values:
-      - values/cert-manager.yaml
-      - values/pvc.yaml
+helmfiles:
+  - path: traefik/helmfile.yaml
 
-  - name: metrics-server
-    namespace: kube-system
-    chart: metrics-server/metrics-server
-    values:
-      - values/metrics.yaml
+  - path: cert-manager/helmfile.yaml
+
+  - path: metrics-server/helmfile.yaml
