@@ -9,4 +9,8 @@ helmfiles:
 
   - path: cert-manager/helmfile.yaml
 
+  - path: cert-manager-webhook-hetzner/helmfile.yaml
+
   - path: metrics-server/helmfile.yaml
+
+  - path: tailscale/helmfile.yaml

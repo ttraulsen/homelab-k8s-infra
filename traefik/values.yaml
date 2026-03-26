@@ -15,8 +15,3 @@ ingressRoute:
 additionalArguments:
   - "--providers.kubernetescrd"
   - "--providers.kubernetesingress"
-
-persistence:
-  enabled: true
-  storageClass: local-nas
-  size: 2Gi

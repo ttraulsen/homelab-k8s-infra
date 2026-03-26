@@ -1,0 +1,14 @@
+repositories:
+  - name: tailscale
+    url: https://pkgs.tailscale.com/helmcharts
+
+releases:
+  - name: tailscale-operator
+    namespace: tailscale
+    chart: tailscale/tailscale-operator
+    version: 1.94.2
+    createNamespace: true
+    values:
+      - values.yaml
+    secrets:
+      - secrets.sops.yaml

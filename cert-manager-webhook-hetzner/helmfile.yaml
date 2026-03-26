@@ -1,0 +1,25 @@
+repositories:
+  - name: hcloud
+    url: https://charts.hetzner.cloud
+
+releases:
+  - name: cert-manager-webhook-hetzner
+    namespace: cert-manager
+    chart: hcloud/cert-manager-webhook-hetzner
+    version: 0.6.7
+    values:
+      - values.yaml
+    hooks:
+      - events: ["presync"]
+        command: "bash"
+        args:
+          - "-c"
+          - "sops -d secrets.sops.yaml | kubectl apply -f -"
+      - events: ["postsync"]
+        command: "kubectl"
+        args:
+          - "apply"
+          - "-f"
+          - "cluster-issuer.yaml"
+          - "-f"
+          - "certificate.yaml"

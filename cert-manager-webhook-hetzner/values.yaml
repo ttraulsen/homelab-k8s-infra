@@ -1,0 +1,6 @@
+groupName: hetzner.dns.hestia
+
+certManager:
+  namespace: cert-manager
+  serviceAccountName: cert-manager
+

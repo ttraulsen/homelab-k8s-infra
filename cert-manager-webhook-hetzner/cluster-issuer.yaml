@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    email: timo.traulsen@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-prod-key
+    solvers:
+      - dns01:
+          webhook:
+            groupName: hetzner.dns.hestia
+            solverName: hetzner
+            config:
+              tokenSecretKeyRef:
+                name: hetzner-secret
+                key: api-key

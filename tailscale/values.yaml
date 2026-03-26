@@ -1,0 +1,9 @@
+installCRDs: true
+
+operatorConfig:
+  hostname: "hestia-k8s-operator"
+  defaultTags:
+    - "tag:k8s-operator"
+
+proxyConfig:
+  defaultTags: "tag:k8s"
