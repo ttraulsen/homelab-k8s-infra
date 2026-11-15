@@ -6,7 +6,7 @@ releases:
   - name: cert-manager-webhook-hetzner
     namespace: cert-manager
     chart: hcloud/cert-manager-webhook-hetzner
-    version: 0.6.7
+    version: 0.9.1
     values:
       - values.yaml
     hooks:
